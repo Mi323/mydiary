@@ -7,14 +7,6 @@ use App\Http\Controllers\Controller;
 
 class MypageController extends Controller
 {
-    public function index()
-    {
-        $id = Auth::id();
-        $user = DB::table('users')->find($id);
-        return view('admin.mypage.create', ['my_user' => $user]);
-    }
-    
-    
     public function add()
     {
         return view('admin.mypage.create');
