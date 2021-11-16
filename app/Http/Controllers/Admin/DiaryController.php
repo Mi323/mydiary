@@ -9,9 +9,12 @@ class DiaryController extends Controller
 {
     public function add()
   {
-      return view('admin.dairy.create');
+      return view('admin.diary.create');
   }
   
-  
+  public function create(Request $request)
+  {
+      return redirect('admin/diary/create');
+  }  
   
 }
