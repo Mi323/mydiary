@@ -18,16 +18,17 @@ Route::get('/', function () {
 Route::group(['prefix' => 'admin','middleware'=>'auth'], function() {
     Route::get('diary/create', 'Admin\DiaryController@add');
     Route::post('diary/create', 'Admin\DiaryController@create');
+    Route::get('diary', 'Admin\DiaryController@index');
+    
+    Route::get('mypage/create', 'Admin\MypageController@add');
+    Route::post('mypage/create', 'Admin\MypageController@create');
+    Route::post('mypage/edit', 'Admin\MypageController@update');
+    Route::get('mypage/edit', 'Admin\MypageController@edit');
     
     
-    // Route::get('mypage/create', 'Admin\MypageController@add');
-    // Route::post('mypage/create', 'Admin\MypageController@create');
-    // Route::post('mypage/edit', 'Admin\MypageController@update');
-    // Route::get('mypage/edit', 'Admin\MypageController@edit');
 });
 
-Auth::routes(['verify' => true]);
-///Auth::routes();からメールアドレスの認証を実装のため変更
-// Route::get('mypage', 'MypageController@index')->middleware('verified');
+Auth::routes();
+
 
 Route::get('/home', 'HomeController@index')->name('home');

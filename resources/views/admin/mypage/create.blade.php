@@ -3,14 +3,14 @@
 
 
 {{-- admin.blade.phpの@yield('title')に'プロフィールの新規作成'を埋め込む --}}
-@section('title', 'Create a My page')
+@section('title', 'My page')
 
 {{-- admin.blade.phpの@yield('content')に以下のタグを埋め込む --}}
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
-                <h2>Create a My page</h2>
+                <h2>My page</h2>
                 
                     <form action="{{ action('Admin\MypageController@create') }}" method="post" enctype="multipart/form-data">
 
