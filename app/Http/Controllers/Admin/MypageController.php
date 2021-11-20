@@ -4,10 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Mypage;
+
 use App\Diary;
 use App\User;
-use Auth;
 
 class MypageController extends Controller
 {
@@ -39,16 +38,18 @@ class MypageController extends Controller
     public function update(Request $request)
     {
       // Validationをかける
-      $this->validate($request, Mypage::$rules);
+      $this->validate($request, User::$rules);
       // News Modelからデータを取得する
-      $mypage = Mypage::find($request->id);
+      $user = User::find($request->id);
       // 送信されてきたフォームデータを格納する
-      $mypage_form = $request->all();
-      unset($mypage_form['_token']);
+      $form = $request->all();
+      unset($form['_token']);
 
       // 該当するデータを上書きして保存する
-      $mypage->fill($mypage_form)->save();
+      $user->fill($form)->save();
 
-      return redirect('admin/user');
+      return redirect('admin/mypage/show');
     }
+    
+    
 }

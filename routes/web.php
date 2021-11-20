@@ -22,12 +22,14 @@ Route::group(['prefix' => 'admin','middleware'=>'auth'], function() {
     Route::get('diary/edit', 'Admin\DiaryController@edit'); 
     Route::post('diary/edit', 'Admin\DiaryController@update');
     Route::get('diary/delete', 'Admin\DiaryController@delete');
+    Route::get('diary/show', 'Admin\DiaryController@show');
+
     
     Route::get('mypage/create', 'Admin\MypageController@add');
     Route::post('mypage/create', 'Admin\MypageController@create');
-    Route::post('mypage/edit', 'Admin\MypageController@update');
+    Route::post('mypage/show', 'Admin\MypageController@update');
     Route::get('mypage/edit', 'Admin\MypageController@edit');
-    Route::post('mypage/edit', 'Admin\MypageController@update');
+    Route::post('mypage/show', 'Admin\MypageController@update');
     Route::get('mypage/show', 'Admin\MypageController@show');
     Route::get('mypage', 'Admin\MypageController@index');
     

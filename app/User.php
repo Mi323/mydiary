@@ -36,4 +36,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+     public static $rules = array(
+        'name' => 'required',
+        'birthday' => 'required',
+        'email' => 'required',
+    );
+    
+    public function diaries() {
+        return $this->hasMany('App\Diary');
+    }
+    
 }

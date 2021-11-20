@@ -9,8 +9,11 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-8 mx-auto">
-                <h2>My page</h2>
+            <h2>My page</h2>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-4 mx-auto">
                 
                 <h3>Profile</h3>
                 
@@ -18,22 +21,45 @@
                 <p>{{ Auth::user()->birthday }}</p>
                 <p>{{ Auth::user()->email }}</p>
                 
-                <div class="col-md-4">
-                <div class="text-right">
-                <a href="{{ action('Admin\MypageController@edit') }}" role="button" class="btn btn-primary">Profileの編集</a>
-                </div>
-                
-                <div class="card" style="width: 18rem;">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect fill="#868e96" width="100%" height="100%"/><text fill="#dee2e6" dy=".3em" x="50%" y="50%">Image cap</text></svg>
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                <div class="col-md-8 mx-auto">
+                    <div class="text-right">
+                        <a href="{{ action('Admin\MypageController@edit') }}" role="button" class="btn btn-primary">Profileの編集</a>
                     </div>
                 </div>
-                
+            </div>
+        </div>
+        <div class="row">
+            <div class="list-news col-md-12 mx-auto">
+                <div class="row">
+                    <table class="table table-dark">
+                        <thead>
+                            <tr>
+                                <th width="20%">Date</th>
+                                <th width="20%">Title</th>
+                                <th width="50%">Boby of diary</th>
+                            </tr>
+                        </thead>
+                        <div class="row">
+                            <h4>My memories</h4>
+                        <tbody>
+                            @foreach(Auth::user()->diaries as $diary)
+                                <tr>
+                                    <td>{{ $diary->created_at}}</td>
+                                    <td>{{ $diary->title }}</td>
+                                    <td>{{ $diary->body }}</td>
+                                    <td>
+                                        <div>
+                                            <a href="{{ action('Admin\DiaryController@show', ['id' => $diary->id]) }}">詳細</a>
+                                        </div>
+                                    </td>
+                                </tr>    
+                            @endforeach 
+                        </tbody>
+                        </div>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
 @endsection
+

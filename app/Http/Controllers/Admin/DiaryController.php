@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Diary;
+use Auth;
 
 class DiaryController extends Controller
 {
@@ -37,6 +38,7 @@ class DiaryController extends Controller
       
       // データベースに保存する
       $diary->fill($form);
+      //$diary->user_id = Auth::id();とするかcreate.blade.phpに<input type="hidden" name="user_id" value="{{ Auth::id() }}">と書くか。
       $diary->save();
       
       return redirect('admin/diary/create');
@@ -101,4 +103,11 @@ class DiaryController extends Controller
       $diary->delete();
       return redirect('admin/diary/');
   }  
+  
+  public function show(Request $request)
+    {
+        $diary = Diary::find($request->id);
+        
+        return view('admin.diary.show', ['diary' => $diary]);
+    }
 }
