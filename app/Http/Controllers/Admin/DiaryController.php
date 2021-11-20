@@ -64,6 +64,7 @@ class DiaryController extends Controller
       if (empty($diary)) {
         abort(404);    
       }
+      
       return view('admin.diary.edit', ['diary_form' => $diary]);
   }
 
@@ -86,8 +87,7 @@ class DiaryController extends Controller
       
       unset($diary_form['image']);
       unset($diary_form['remove']);
-      unset($diary_form['_token']);
-      // 該当するデータを上書きして保存する
+      unset($diary_form['_token']);      // 該当するデータを上書きして保存する
       $diary->fill($diary_form)->save();
       return redirect('admin/diary');
   }

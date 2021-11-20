@@ -31,15 +31,15 @@
                     <table class="table table-dark">
                         <thead>
                             <tr>
-                                <th width="10%">ID</th>
+                                <th width="20%">Date</th>
                                 <th width="20%">Title</th>
-                                <th width="50%">Boby</th>
+                                <th width="50%">Boby of diary</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($posts as $diary)
                                 <tr>
-                                    <th>{{ $diary->id }}</th>
+                                    <th>{{ $diary->created_at }}</th>
                                     <td>{{ \Str::limit($diary->title, 100) }}</td>
                                     <td>{{ \Str::limit($diary->body, 250) }}</td>
                                     <td>     

@@ -27,7 +27,9 @@ Route::group(['prefix' => 'admin','middleware'=>'auth'], function() {
     Route::post('mypage/create', 'Admin\MypageController@create');
     Route::post('mypage/edit', 'Admin\MypageController@update');
     Route::get('mypage/edit', 'Admin\MypageController@edit');
-    
+    Route::post('mypage/edit', 'Admin\MypageController@update');
+    Route::get('mypage/show', 'Admin\MypageController@show');
+    Route::get('mypage', 'Admin\MypageController@index');
     
 });
 
