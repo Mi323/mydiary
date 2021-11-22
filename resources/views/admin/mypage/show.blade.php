@@ -35,9 +35,9 @@
                     <div class="d-flex flex-row">
                         @foreach(Auth::user()->diaries->sortByDesc('date') as $diary)
                             <body class="body-card">
-                                <div class="card" style="width: 18rem;">
+                                <div class="card" style="width: 18rem; background-image: url({{ secure_asset('storage/image/' . $diary->image_path) }});">
                                     <div class="card-content">
-                                        <img src="{{ secure_asset('storage/image/' . $diary->image_path) }}">
+                                        {{--<img src="{{ secure_asset('storage/image/' . $diary->image_path) }}">--}}
                                                 
                                         <h5 class="card-title">{{ $diary->title }}</h5>
                                         <h6 class="card-subtitle mb-2 text-muted">{{ $diary->date->format('Y年m月d日')}}</h6>
