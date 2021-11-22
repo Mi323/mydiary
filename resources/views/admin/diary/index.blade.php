@@ -39,7 +39,7 @@
                         <tbody>
                             @foreach($posts as $diary)
                                 <tr>
-                                    <th>{{ $diary->created_at }}</th>
+                                    <th>{{ $diary->date }}</th>
                                     <td>{{ \Str::limit($diary->title, 100) }}</td>
                                     <td>{{ \Str::limit($diary->body, 250) }}</td>
                                     <td>     

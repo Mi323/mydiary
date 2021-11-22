@@ -146,6 +146,7 @@ return [
     */
 
     'attributes' => [
+        'date' => 'Date',
         'title' => 'Title',
         'body' => 'Body of diary'
         ],

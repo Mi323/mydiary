@@ -41,7 +41,7 @@ class DiaryController extends Controller
       //$diary->user_id = Auth::id();とするかcreate.blade.phpに<input type="hidden" name="user_id" value="{{ Auth::id() }}">と書くか。
       $diary->save();
       
-      return redirect('admin/diary/create');
+      return view('admin.diary.create', ['diary' => $diary]);
   }  
   
   // diary一覧作成で以下を追記

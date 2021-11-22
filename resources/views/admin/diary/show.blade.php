@@ -8,10 +8,10 @@
                 <h2>One day's diary</h2>
                         <tr>
                             <th scope="row">{{$diary->id}}</th>
-                            <td>{{$diary->created_at}}</td>
+                            <td>{{$diary->date->format('Y年m月d日')}}</td>
                             <td>{{$diary->title}}</td>
                             <td>{{$diary->body}}</td>
-                            <td>{{$diary->image_path}}</td>
+                            <td><img src="{{ secure_asset('storage/image/' . $diary->image_path) }}"></td>
                             <div>
                                 <a href="{{ action('Admin\DiaryController@edit', ['id' => $diary->id]) }}">編集</a>
                             </div>
