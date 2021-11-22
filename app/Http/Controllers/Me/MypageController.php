@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Me;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -12,26 +12,26 @@ class MypageController extends Controller
 {
     public function add()
     {
-        return view('admin.mypage.create');
+        return view('me.mypage.create');
     }
 
     public function create()
     {
-        return redirect('admin/mypage/create');
+        return redirect('me/mypage/create');
     }
     
     public function show()
     {
         
         
-        return view('admin.mypage.show');
+        return view('me.mypage.show');
     }
     
     
     public function edit(Request $request)
      {
     
-      return view('admin.mypage.edit');
+      return view('me.mypage.edit');
     }
 
 
@@ -48,7 +48,7 @@ class MypageController extends Controller
       // 該当するデータを上書きして保存する
       $user->fill($form)->save();
 
-      return redirect('admin/mypage/show');
+      return redirect('me/mypage/show');
     }
     
     

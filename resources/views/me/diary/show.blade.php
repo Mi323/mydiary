@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.me')
 @section('title', 'One days diary')
 
 @section('content')
@@ -13,10 +13,10 @@
                             <td>{{$diary->body}}</td>
                             <td><img src="{{ secure_asset('storage/image/' . $diary->image_path) }}"></td>
                             <div>
-                                <a href="{{ action('Admin\DiaryController@edit', ['id' => $diary->id]) }}">編集</a>
+                                <a href="{{ action('Me\DiaryController@edit', ['id' => $diary->id]) }}">編集</a>
                             </div>
                             <div>
-                                <a href="{{ action('Admin\DiaryController@delete', ['id' => $diary->id]) }}">削除</a>
+                                <a href="{{ action('Me\DiaryController@delete', ['id' => $diary->id]) }}">削除</a>
                             </div>
                         </tr>
                 

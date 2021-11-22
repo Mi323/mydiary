@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.me')
 @section('title', 'Write a diary')
 
 @section('content')
@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <h2>Write a diary</h2>
-                <form action="{{ action('Admin\DiaryController@create') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ action('Me\DiaryController@create') }}" method="post" enctype="multipart/form-data">
 
                     @if (count($errors) > 0)
                         <ul>

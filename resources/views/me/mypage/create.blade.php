@@ -1,18 +1,18 @@
-{{-- layouts/admin.blade.phpを読み込む --}}
+{{-- layouts/Me.blade.phpを読み込む --}}
 @extends('layouts.mypage')
 
 
-{{-- admin.blade.phpの@yield('title')に'プロフィールの新規作成'を埋め込む --}}
+{{-- Me.blade.phpの@yield('title')に'プロフィールの新規作成'を埋め込む --}}
 @section('title', 'My page')
 
-{{-- admin.blade.phpの@yield('content')に以下のタグを埋め込む --}}
+{{-- Me.blade.phpの@yield('content')に以下のタグを埋め込む --}}
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <h2>My page</h2>
                 
-                    <form action="{{ action('Admin\MypageController@create') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ action('Me\MypageController@create') }}" method="post" enctype="multipart/form-data">
 
                     @if (count($errors) > 0)
                         <ul>

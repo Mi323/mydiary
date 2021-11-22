@@ -1,11 +1,11 @@
-{{-- layouts/admin.blade.phpを読み込む --}}
-@extends('layouts.admin')
+{{-- layouts/Me.blade.phpを読み込む --}}
+@extends('layouts.me')
 
 
-{{-- admin.blade.phpの@yield('title')に'ニュースの新規作成'を埋め込む --}}
+{{-- Me.blade.phpの@yield('title')に'ニュースの新規作成'を埋め込む --}}
 @section('title', 'My page')
 
-{{-- admin.blade.phpの@yield('content')に以下のタグを埋め込む --}}
+{{-- Me.blade.phpの@yield('content')に以下のタグを埋め込む --}}
 @section('content')
     <div class="container">
         <div class="row">
@@ -23,7 +23,7 @@
                 
                 <div class="col-md-8 mx-auto">
                     <div class="text-right">
-                        <a href="{{ action('Admin\MypageController@edit') }}" role="button" class="btn btn-primary">Profileの編集</a>
+                        <a href="{{ action('Me\MypageController@edit') }}" role="button" class="btn btn-primary">Profileの編集</a>
                     </div>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                                         <h5 class="card-title">{{ $diary->title }}</h5>
                                         <h6 class="card-subtitle mb-2 text-muted">{{ $diary->date->format('Y年m月d日')}}</h6>
                                         <p class="card-body">{{ $diary->body }}</p>
-                                        <a class="button" href="{{ action('Admin\DiaryController@show', ['id' => $diary->id])}}" >Let’s see!</a>
+                                        <a class="button" href="{{ action('Me\DiaryController@show', ['id' => $diary->id])}}" >Let’s see!</a>
                                     </div>
                                 </div>
                             </body>

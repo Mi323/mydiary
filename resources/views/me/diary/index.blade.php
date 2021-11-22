@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.me')
 @section('title', 'My memories')
 
 @section('content')
@@ -8,10 +8,10 @@
         </div>
         <div class="row">
             <div class="col-md-4">
-                <a href="{{ action('Admin\DiaryController@add') }}" role="button" class="btn btn-primary">Write a diary</a>
+                <a href="{{ action('Me\DiaryController@add') }}" role="button" class="btn btn-primary">Write a diary</a>
             </div>
             <div class="col-md-8">
-                <form action="{{ action('Admin\DiaryController@index') }}" method="get">
+                <form action="{{ action('Me\DiaryController@index') }}" method="get">
                     <div class="form-group row">
                         <label class="col-md-2">Title</label>
                         <div class="col-md-8">
@@ -44,10 +44,10 @@
                                     <td>{{ \Str::limit($diary->body, 250) }}</td>
                                     <td>     
                                         <div>
-                                            <a href="{{ action('Admin\DiaryController@edit', ['id' => $diary->id]) }}">編集</a>
+                                            <a href="{{ action('Me\DiaryController@edit', ['id' => $diary->id]) }}">編集</a>
                                         </div>
                                         <div>
-                                            <a href="{{ action('Admin\DiaryController@delete', ['id' => $diary->id]) }}">削除</a>
+                                            <a href="{{ action('Me\DiaryController@delete', ['id' => $diary->id]) }}">削除</a>
                                         </div>
                                     </td>
                                 </tr>

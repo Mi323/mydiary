@@ -16,7 +16,7 @@ auth diary index.blade.php
                                         <h5 class="card-title">{{ $diary->title }}</h5>
                                         <h6 class="card-subtitle mb-2 text-muted">{{ $diary->date->format('Y年m月d日')}}</h6>
                                         <p class="card-body">{{ $diary->body }}</p>
-                                        <a class="button" href="{{ action('Admin\DiaryController@show', ['id' => $diary->id])}}" >Let’s see!</a>
+                                        <a class="button" href="{{ action('Me\DiaryController@show', ['id' => $diary->id])}}" >Let’s see!</a>
                                     </div>
                                 </div>
                             </body>

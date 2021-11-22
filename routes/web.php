@@ -15,22 +15,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'admin','middleware'=>'auth'], function() {
-    Route::get('diary/create', 'Admin\DiaryController@add');
-    Route::post('diary/create', 'Admin\DiaryController@create');
-    Route::get('diary', 'Admin\DiaryController@index');
-    Route::get('diary/edit', 'Admin\DiaryController@edit'); 
-    Route::post('diary/edit', 'Admin\DiaryController@update');
-    Route::get('diary/delete', 'Admin\DiaryController@delete');
-    Route::get('diary/show', 'Admin\DiaryController@show');
+Route::group(['prefix' => 'me','middleware'=>'auth'], function() {
+    Route::get('diary/create', 'Me\DiaryController@add');
+    Route::post('diary/create', 'Me\DiaryController@create');
+    Route::get('diary', 'Me\DiaryController@index');
+    Route::get('diary/edit', 'Me\DiaryController@edit'); 
+    Route::post('diary/edit', 'Me\DiaryController@update');
+    Route::get('diary/delete', 'Me\DiaryController@delete');
+    Route::get('diary/show', 'Me\DiaryController@show');
 
     
-    Route::get('mypage/create', 'Admin\MypageController@add');
-    Route::post('mypage/create', 'Admin\MypageController@create');
-    Route::post('mypage/show', 'Admin\MypageController@update');
-    Route::get('mypage/edit', 'Admin\MypageController@edit');
-    Route::get('mypage/show', 'Admin\MypageController@show');
-    Route::get('mypage', 'Admin\MypageController@index');
+    Route::get('mypage/create', 'Me\MypageController@add');
+    Route::post('mypage/create', 'Me\MypageController@create');
+    Route::post('mypage/show', 'Me\MypageController@update');
+    Route::get('mypage/edit', 'Me\MypageController@edit');
+    Route::get('mypage/show', 'Me\MypageController@show');
+    Route::get('mypage', 'Me\MypageController@index');
     
     Route::get('diary', 'DiaryController@index');
     

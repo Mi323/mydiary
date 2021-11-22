@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Me;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -12,7 +12,7 @@ class DiaryController extends Controller
 {
     public function add()
   {
-      return view('admin.diary.create');
+      return view('me.diary.create');
   }
   
   public function create(Request $request)
@@ -41,7 +41,7 @@ class DiaryController extends Controller
       //$diary->user_id = Auth::id();とするかcreate.blade.phpに<input type="hidden" name="user_id" value="{{ Auth::id() }}">と書くか。
       $diary->save();
       
-      return view('admin.diary.create', ['diary' => $diary]);
+      return view('me.diary.create', ['diary' => $diary]);
   }  
   
   // diary一覧作成で以下を追記
@@ -55,7 +55,7 @@ class DiaryController extends Controller
           // それ以外はすべてのニュースを取得する
           $posts = Diary::all();
       }
-      return view('admin.diary.index', ['posts' => $posts, 'cond_title' => $cond_title]);
+      return view('me.diary.index', ['posts' => $posts, 'cond_title' => $cond_title]);
   }
  
  ///diaryの編集
@@ -67,7 +67,7 @@ class DiaryController extends Controller
         abort(404);    
       }
       
-      return view('admin.diary.edit', ['diary_form' => $diary]);
+      return view('me.diary.edit', ['diary_form' => $diary]);
   }
 
 ///diaryの編集
@@ -91,7 +91,7 @@ class DiaryController extends Controller
       unset($diary_form['remove']);
       unset($diary_form['_token']);      // 該当するデータを上書きして保存する
       $diary->fill($diary_form)->save();
-      return redirect('admin/diary');
+      return redirect('me/diary');
   }
   
   ///diaryの削除
@@ -101,13 +101,13 @@ class DiaryController extends Controller
       $diary = Diary::find($request->id);
       // 削除する
       $diary->delete();
-      return redirect('admin/diary/');
+      return redirect('me/diary/');
   }  
   
   public function show(Request $request)
     {
         $diary = Diary::find($request->id);
         
-        return view('admin.diary.show', ['diary' => $diary]);
+        return view('me.diary.show', ['diary' => $diary]);
     }
 }
