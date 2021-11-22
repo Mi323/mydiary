@@ -1,4 +1,4 @@
-@extends('layouts.me')
+@extends('layouts.mypage')
 @section('title', 'My memories')
 
 @section('content')

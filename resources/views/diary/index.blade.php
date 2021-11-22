@@ -1,4 +1,4 @@
-@extends('layouts.front')
+@extends('layouts.mypage')
 auth diary index.blade.php
 @section('content')
     <div class="container">

@@ -1,4 +1,5 @@
 @extends('layouts.me')
+views/me/diary/show.blade.php
 @section('title', 'One days diary')
 
 @section('content')
