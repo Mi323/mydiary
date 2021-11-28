@@ -15,6 +15,7 @@
         <!-- Scripts -->
          {{-- Laravel標準で用意されているJavascriptを読み込みます --}}
         <script src="{{ secure_asset('js/app.js') }}" defer></script>
+        
 
         <!-- Fonts -->
         <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -27,7 +28,7 @@
         <link href="{{ secure_asset('css/me.css') }}" rel="stylesheet">
     </head>
     <body>
-        <div id="app">
+        
             {{-- 画面上部に表示するナビゲーションバーです。 --}}
             <nav class="navbar navbar-expand-md navbar-dark navbar-laravel">
                 <div class="container">
@@ -41,7 +42,12 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav mr-auto">
-
+                            <li class="nav-item active">
+                            <a class="nav-link" href="{{ action('Me\MypageController@show') }}">My page<span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="{{ action('Me\DiaryController@create') }}">Write a diary</a>
+                            </li>
                         </ul>
 
                         <!-- Right Side Of Navbar -->
@@ -83,6 +89,6 @@
                 {{-- コンテンツをここに入れるため、@yieldで空けておきます。 --}}
                 @yield('content')
             </main>
-        </div>
+        
     </body>
 </html>

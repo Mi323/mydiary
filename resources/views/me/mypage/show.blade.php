@@ -54,7 +54,21 @@
         <div class="row">
             <div class="col-md-4">
                 <h2>Where I went</h2>
-                    
+                <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+                    <head>
+                        <title>Simple Click Events</title>
+                        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+                        <link rel="stylesheet" type="text/css" href="./style.css" />
+                        <script src="./index.js"></script>
+                    </head>
+                    <body>
+                    <div id="map" style="height:700px; width:850px"></div>
+                    <script src="{{ asset('/js/mypage.js') }}"></script>
+                    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+                        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMRelByKAUAEdayqCkWDBEkRo52gH4goM&callback=initMap&v=weekly" async>
+                        </script>
+                    </body>
+                </html>   
             </div>
         </div>
     </div>

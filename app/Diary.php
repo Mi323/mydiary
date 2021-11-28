@@ -13,6 +13,8 @@ class Diary extends Model
         'date' => 'required',
         'title' => 'required',
         'body' => 'required',
+        'lat' => 'required',
+        'lng' => 'required',
     );
     
     public function user() {

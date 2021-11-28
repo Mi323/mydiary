@@ -21,6 +21,8 @@ class CreateDiariesTable extends Migration
             $table->string('body');
             $table->string('image_path')->nullable();
             $table->timestamps();
+            $table->double('lat',9,6);
+            $table->double('lng',9,6);
         });
     }
 

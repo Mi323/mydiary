@@ -17,7 +17,7 @@ class DiaryController extends Controller
   
   public function create(Request $request)
   {
-      
+     
       $this->validate($request, Diary::$rules);
       
       $diary = new Diary;
@@ -60,14 +60,17 @@ class DiaryController extends Controller
  
  ///diaryの編集
  public function edit(Request $request)
-  {
+  {   
+      
       // News Modelからデータを取得する
       $diary = Diary::find($request->id);
       if (empty($diary)) {
         abort(404);    
       }
       
-      return view('me.diary.edit', ['diary_form' => $diary]);
+      $date = $request->input("date");
+      
+      return view('me.diary.edit', ['diary_form' => $diary] , ['date' => $date,]);
   }
 
 ///diaryの編集
@@ -110,4 +113,7 @@ class DiaryController extends Controller
         
         return view('me.diary.show', ['diary' => $diary]);
     }
+    
+    
+    
 }
